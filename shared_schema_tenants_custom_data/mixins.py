@@ -98,7 +98,7 @@ class TenantSpecificFieldsModelMixin(models.Model):
 
 
 class TenantSpecificPivotTable(models.Model):
-    definition = models.ForeignKey('TenantSpecificFieldDefinition')
+    definition = models.ForeignKey('TenantSpecificFieldDefinition', on_delete=models.CASCADE)
 
     row_content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)
     row_id = models.PositiveIntegerField()

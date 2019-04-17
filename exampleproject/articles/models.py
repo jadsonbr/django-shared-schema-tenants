@@ -8,7 +8,7 @@ class Article(SingleTenantModelMixin):
     title = models.CharField(max_length=100)
     text = models.TextField()
     tags = models.ManyToManyField('Tag')
-    author = models.ForeignKey(settings.AUTH_USER_MODEL)
+    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
 
     def __str__(self):
         return '%s - %s' % (self.title, str(self.author))

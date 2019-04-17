@@ -55,8 +55,8 @@ class Tenant(TimeStampedModel):
 
 
 class TenantSite(TimeStampedModel, SingleTenantModelMixin):
-    tenant = models.ForeignKey('Tenant', related_name="tenant_sites")
-    site = models.OneToOneField(Site, related_name="tenant_site")
+    tenant = models.ForeignKey('Tenant', related_name="tenant_sites", on_delete=models.CASCADE)
+    site = models.OneToOneField(Site, related_name="tenant_site", on_delete=models.CASCADE)
 
     def __str__(self):
         return '%s - %s' % (self.tenant.name, self.site.domain)
@@ -71,8 +71,8 @@ post_delete.connect(post_delete_tenant_site, sender=TenantSite)
 
 
 class TenantRelationship(TimeStampedModel, SingleTenantModelMixin):
-    tenant = models.ForeignKey('Tenant', related_name="relationships")
-    user = models.ForeignKey(django_settings.AUTH_USER_MODEL, related_name="relationships")
+    tenant = models.ForeignKey('Tenant', related_name="relationships", on_delete=models.CASCADE)
+    user = models.ForeignKey(django_settings.AUTH_USER_MODEL, related_name="relationships", on_delete=models.CASCADE)
     groups = models.ManyToManyField('auth.Group',
                                     related_name="user_tenant_groups",
                                     blank=True)

@@ -43,13 +43,13 @@ class TenantSpecificTable(SingleTenantModelMixin):
 
 class TenantSpecificTablesPermission(SingleTenantModelMixin):
     name = models.CharField(max_length=255)
-    table = models.ForeignKey('TenantSpecificTable')
+    table = models.ForeignKey('TenantSpecificTable', on_delete=models.CASCADE)
     codename = models.CharField(max_length=100)
 
 
 class TenantSpecificTablesGroup(SingleTenantModelMixin):
     group = models.ForeignKey(
-        Group, related_name='tenant_specific_tables_groups')
+        Group, related_name='tenant_specific_tables_groups', on_delete=models.CASCADE)
     permissions = models.ManyToManyField(
         'TenantSpecificTablesPermission', blank=True, related_name='groups')
 
@@ -68,7 +68,7 @@ def create_tenant_specific_tables_group(sender, instance, created, *args, **kwar
 
 
 class TenantSpecificTablesRelationship(SingleTenantModelMixin):
-    user = models.ForeignKey(settings.AUTH_USER_MODEL)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     groups = models.ManyToManyField(
         'TenantSpecificTablesGroup', related_name='relationships')
     permissions = models.ManyToManyField(
@@ -162,7 +162,7 @@ class TenantSpecificFieldDateTimePivot(SingleTenantModelMixin, TenantSpecificPiv
 
 
 class TenantSpecificTableRow(TimeStampedModel, SingleTenantModelMixin, TenantSpecificFieldsModelMixin):
-    table = models.ForeignKey('TenantSpecificTable', related_name='rows')
+    table = models.ForeignKey('TenantSpecificTable', related_name='rows', on_delete=models.CASCADE)
 
     objects = TenantSpecificTableRowManager()
 

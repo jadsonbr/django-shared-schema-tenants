@@ -6,7 +6,7 @@ from shared_schema_tenants_custom_data.mixins import TenantSpecificFieldsModelMi
 class Lecture(TenantSpecificFieldsModelMixin):
     subject = models.CharField(max_length=100)
     description = models.TextField()
-    speaker = models.ForeignKey(settings.AUTH_USER_MODEL)
+    speaker = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
 
     def __str__(self):
         return '%s - %s' % (self.subject, self.speaker)
