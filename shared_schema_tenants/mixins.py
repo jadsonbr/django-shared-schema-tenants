@@ -12,7 +12,7 @@ def get_default_tenant():
 
 class SingleTenantModelMixin(models.Model):
     tenant = models.ForeignKey(
-        'shared_schema_tenants.Tenant', default=get_default_tenant)
+        'shared_schema_tenants.Tenant', default=get_default_tenant, on_delete=models.CASCADE)
 
     objects = SingleTenantModelManager()
 
