@@ -1,5 +1,5 @@
 from django.db import transaction
-from django.utils.text import ugettext_lazy as _
+from django.utils.translation import ugettext_lazy as _
 from django.contrib.sites.models import Site
 from django.core.exceptions import ValidationError
 
