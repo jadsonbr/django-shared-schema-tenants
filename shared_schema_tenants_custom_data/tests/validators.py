@@ -1,5 +1,5 @@
 from django.core.exceptions import ValidationError
-from django.utils.text import ugettext_lazy as _
+from django.utils.translation import ugettext_lazy as _
 
 
 def validator_gt_2(value):

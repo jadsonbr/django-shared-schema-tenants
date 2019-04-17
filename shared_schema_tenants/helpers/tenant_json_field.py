@@ -1,6 +1,6 @@
 import sys
 from django.core.exceptions import ValidationError
-from django.utils.text import ugettext_lazy as _
+from django.utils.translation import ugettext_lazy as _
 from shared_schema_tenants.exceptions import TenantFieldTypeConfigurationError
 from shared_schema_tenants.helpers.tenants import get_current_tenant
 

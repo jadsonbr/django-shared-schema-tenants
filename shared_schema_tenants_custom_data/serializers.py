@@ -2,7 +2,7 @@ from collections import OrderedDict
 from django.db import models
 from django.contrib.contenttypes.models import ContentType
 from django.core.exceptions import ValidationError as DjangoValidationError
-from django.utils.text import ugettext_lazy as _
+from django.utils.translation import ugettext_lazy as _
 from rest_framework import serializers
 from rest_framework.fields import get_error_detail, set_value
 from rest_framework.fields import SkipField

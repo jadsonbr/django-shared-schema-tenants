@@ -2,7 +2,7 @@ from django import forms
 from django.contrib import admin
 from django.contrib.sites.models import Site
 from django.core.exceptions import ValidationError
-from django.utils.text import ugettext_lazy as _
+from django.utils.translation import ugettext_lazy as _
 import json
 
 from shared_schema_tenants.models import Tenant, TenantSite, TenantRelationship

@@ -37,7 +37,7 @@ INSTALLED_APPS = [
 def is_url(context, value, original_value):
     from django.core.validators import URLValidator
     from django.core.exceptions import ValidationError
-    from django.utils.text import ugettext_lazy as _
+    from django.utils.translation import ugettext_lazy as _
     validate_url = URLValidator()
     try:
         validate_url(value)
