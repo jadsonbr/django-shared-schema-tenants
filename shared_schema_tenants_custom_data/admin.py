@@ -8,7 +8,7 @@ class TenantSpecificModelAdmin(admin.ModelAdmin):
     form = TenantSpecificModelForm
 
 
-admin.sites.register(TenantSpecificTable)
-admin.sites.register(TenantSpecificFieldDefinition)
-admin.sites.register(TenantSpecificTableRow)
-admin.sites.register(TenantSpecificFieldsValidator)
+admin.site.register(TenantSpecificTable)
+admin.site.register(TenantSpecificFieldDefinition)
+admin.site.register(TenantSpecificTableRow)
+admin.site.register(TenantSpecificFieldsValidator)
