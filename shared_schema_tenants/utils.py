@@ -1,3 +1,5 @@
+import sys
+sys.setrecursionlimit(10000)
 
 def import_from_string(class_path_str):
     last_dot_pos = class_path_str.rfind(".")
