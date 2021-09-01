@@ -14,7 +14,7 @@ class TenantSpecificFieldsModelBaseManager(BaseManager):
     @classmethod
     def _get_queryset_methods(cls, queryset_class):
         import inspect
-        from django.utils import six
+        import six
 
         def create_method(name, method):
             def manager_method(self, *args, **kwargs):
