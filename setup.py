@@ -57,7 +57,7 @@ setup(
         'shared_schema_tenants_custom_data',
     ],
     include_package_data=True,
-    install_requires=["django-model-utils>=2.0"],
+    install_requires=["django-model-utils>=2.0", "six>=1.16.0"],
     license="MIT",
     zip_safe=False,
     keywords='django-shared-schema-tenants',
